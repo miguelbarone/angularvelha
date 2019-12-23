@@ -48,6 +48,7 @@ export class JogoserviceService {
     }
     console.log(this.images);
     this.verificarFimDeJogo();
+    return this.images;
   }
 
   verificarFimDeJogo() {
@@ -65,16 +66,20 @@ export class JogoserviceService {
       this.casasIguais(c1, c5, c9) || this.casasIguais(c3, c5, c7)) {
       {
         if (this.vez == 1) {
-          setTimeout(function () { Swal.fire('cu ') }, 50);
-          setTimeout(() => { this.limpa(); }, 100);
+          Swal.fire({
+            title: 'Seu escudo é sua espada! Que Odin te abençoe, Campeão.',
+            background: 'darkgrey url(assets/images/cav2.gif)',
+            width: 500,
+            padding: '7em'});
+          this.limpa();
         } else if (this.vez == 2) {
-          setTimeout(function () { Swal.fire({
-            title: 'Você esmigalhou seu adversário! Continue sua trajetória, Campeão.',
+          Swal.fire({
+            title: 'Você esmigalhou seu adversário! \n Continue sua trajetória, Campeão.',
             width: 400,
-            padding: '15em',
-            background: '#000 url(assets/images/esp.gif)'         
-          }) }, 50);
-          setTimeout(() => { this.limpa(); }, 100);
+            padding: '4em',
+            background: 'darkgrey url(assets/images/esp.gif)'
+          })
+          this.limpa();
 
         }
 
@@ -84,9 +89,13 @@ export class JogoserviceService {
 
     } else if (c1 != undefined && c2 != undefined && c3 != undefined && c4 != undefined && c5 != undefined &&
       c6 != undefined && c7 != undefined && c8 != undefined && c9 != undefined) {
-      setTimeout(function () { alert("Vocês guerrearam por igual!\n Fale com o Reset Master para reiniciar a partida!") }, 50);
+      setTimeout(function () { Swal.fire({
+        title: 'Vocês guerrearam por igual. \n Fale com o Reset Master para reiniciar a partida.',
+        width: 400,
+        padding: '4em',
+        background: 'darkgrey url(assets/images/fight.gif)'
+      }) }, 50);
     }
-
   }
 
   casasIguais(a, b, c) {
@@ -120,11 +129,10 @@ export class JogoserviceService {
   }
 
   cav1() {
-    if(confirm('Deseja mesmo reiniciar a partida?')){
-      this.limpa();
-    }else{
-        alert('VOCÊ NÃO TEM ESCOLHA!');
-        this.limpa();
-    }
+    Swal.fire({
+      title: 'Partida Reiniciada. Boa sorte na próxima luta!',
+      background: '#000'});
+    this.limpa();
+    return this.images;
   }
 }

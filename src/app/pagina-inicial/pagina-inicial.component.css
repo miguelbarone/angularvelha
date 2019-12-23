@@ -24,7 +24,6 @@
     animation-duration: 3.8s;
     animation-fill-mode: forwards;
     top: 400px;
-    animation-delay: 2s;
 }
 @keyframes mymove {
     0% {left: -400px;}
@@ -38,7 +37,6 @@
     animation-duration: 5s;
     animation-fill-mode: forwards;
     top: 200px;
-    animation-delay: 2s;
 }
 @keyframes mymove {
     0% {left: -400px;}
@@ -52,7 +50,6 @@
     animation-duration: 5s;
     animation-fill-mode: forwards;
     left: 500px;
-    animation-delay: 2s;
 }
 @keyframes mymove1 {
     0% {top: 800px;}
